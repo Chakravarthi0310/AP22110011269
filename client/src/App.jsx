@@ -1,15 +1,24 @@
-import UsersList from "./components/userLists";
-import PostsList from "./components/postLists";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/NavBar";
+import Users from "./pages/Users";
+import LatestPosts from "./pages/LatestPosts";
+import PopularPosts from "./pages/PopularPosts";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1>API Data Display</h1>
-      <UsersList />
-      <PostsList type="latest" />
-      <PostsList type="popular" />
-    </div>
+    <Router>
+      <div className="container">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/users" element={<Users />} />
+            <Route path="/latest" element={<LatestPosts />} />
+            <Route path="/popular" element={<PopularPosts />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
