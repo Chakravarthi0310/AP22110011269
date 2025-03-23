@@ -26,9 +26,9 @@ const apiClient = axios.create({
     baseURL: "http://20.244.56.144/test",
   });
   
-  apiClient.interceptors.request.use(async (config) => {
-    if (!authToken) await authenticate();
-    config.headers.Authorization = `Bearer ${authToken}`;
-    return config;
-  });
+apiClient.interceptors.request.use(async (config) => {
+  if (!authToken) await authenticate();
+  config.headers.Authorization = `Bearer ${authToken}`;
+  return config;
+});
 module.exports = {authenticate, apiClient}

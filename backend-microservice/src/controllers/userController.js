@@ -20,7 +20,6 @@ const getTopUsers = async (req, res) => {
       }
       userPostCounts.push({ userId, name: users[userId], postCount });
     }
-
     for (let i = 0; i < userPostCounts.length - 1; i++) {
       for (let j = 0; j < userPostCounts.length - i - 1; j++) {
         if (userPostCounts[j].postCount < userPostCounts[j + 1].postCount) {
